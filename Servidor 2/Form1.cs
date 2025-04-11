@@ -39,7 +39,6 @@ namespace Servidor_2
                 
                 //preenche o listbox com a mensagem "Cliente Conectado" , assim temos uma mensagem 
                 lstMensagens.Invoke(new Action(() => lstMensagens.Items.Add("Cliente conectado!")));
-                //criando uma task ( é estilo as threads que eu expliquei na aula, ele vai executar essa função numa thread separada, sem parar a execução da thread principal), ele vai chamar a função Cliente , aonde vou explicar abaixo oq ela faz
                 // ele irá criar uma thread para cada cliente
                 Task.Run(() => Cliente(cliente));
             }
