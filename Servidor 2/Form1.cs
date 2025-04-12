@@ -32,14 +32,14 @@ namespace Servidor_2
             //um loop infinito, pois ele vai ficar sempre procurando novos clientes 
             while (true)
             {
-                //caso ele ache um novo cliente, ele vai adicionar na váriavel cliente
+                //caso ele ache um novo cliente, ele vai adicionar na variável cliente
                 var cliente = await servidor.AcceptTcpClientAsync();
                 //adiciona na lista de TCP Client
                 clientesConectados.Add(cliente);
                 
                 //preenche o listbox com a mensagem "Cliente Conectado" , assim temos uma mensagem 
-                lstMensagens.Invoke(new Action(() => lstMensagens.Items.Add("Cliente conectado!")));
-                //criando uma task ( é estilo as threads que eu expliquei na aula, ele vai executar essa função numa thread separada, sem parar a execução da thread principal), ele vai chamar a função Cliente , aonde vou explicar abaixo oq ela faz
+                //lstMensagens.Invoke(new Action(() => lstMensagens.Items.Add("Cliente conectado!")));
+                
                 // ele irá criar uma thread para cada cliente
                 Task.Run(() => Cliente(cliente));
             }
